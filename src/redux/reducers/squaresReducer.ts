@@ -19,6 +19,11 @@ export const squaresReducer = (
       } else {
         return { ...state, squares: [...state.squares, action.payload] };
       }
+    case "DELETE_SQUARE":
+      let newArray = [...state.squares];
+      let squareIndex = newArray.findIndex((o) => o.id === action.payload.id);
+      newArray.splice(squareIndex,1)
+      return { ...state, squares: newArray };
 
     default:
       return state;

@@ -6,7 +6,6 @@ import { squaresReducer } from "./reducers/squaresReducer";
 const persistConfig = {
   key: 'root',
   storage,
-  //whitelist: ['authType']
 }
  
 const persistedReducer = persistReducer(persistConfig, squaresReducer)

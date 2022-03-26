@@ -1,9 +1,15 @@
 
-
-const  SquareItem: React.FC = ()=>{
+interface DeleteSquareProps {
+  handleDelete(): void;
+  name:string
+}
+const  SquareItem: React.FC <DeleteSquareProps>= ({handleDelete,name})=>{
   return(
     <div className="square">
-      hi
+      {name}
+      <button onClick={handleDelete}>
+        delete
+      </button>
     </div>
   )
 }
