@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useDispatch, useSelector } from "react-redux";
+import SquareItem from "./components/SquareItem";
+import { addSquare, Payload } from "./redux/actions/squareAction";
+import { SquaresState } from "./redux/reducers/squaresReducer";
+import "./styles/App.scss";
 
-function App() {
+const App: React.FC = () => {
+  const squares = useSelector<SquaresState, Payload[]>(
+    (state) => state.squares
+  );
+  const dispatch = useDispatch();
+
+  const addSquareHandler = (square: Payload) => {
+    dispatch(addSquare(square));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="body">
+      <div className="container">
+        {squares.map(({ name, id }) => (
+          <SquareItem key={id} />
+        ))}
+      </div>
+      <div>
+        <div
+          className="add"
+          onClick={() =>
+            addSquareHandler({
+              id: squares.length + 1,
+              name: `${squares.length + 1}`,
+            })
+          }
         >
-          Learn React
-        </a>
-      </header>
+          Add
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
