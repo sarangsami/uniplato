@@ -1,10 +1,15 @@
-
-
-const  SquareItem: React.FC = ()=>{
-  return(
-    <div className="square">
-      hi
-    </div>
-  )
+interface DeleteSquareProps {
+  handleDelete(): void;
+  name: string;
 }
-export default SquareItem
+
+const SquareItem: React.FC<DeleteSquareProps> = ({handleDelete, name}) => {
+  return (
+    <div className="square">
+      {name}
+      <button onClick={handleDelete}>delete</button>
+    </div>
+  );
+};
+
+export default SquareItem;

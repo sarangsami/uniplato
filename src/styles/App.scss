@@ -15,21 +15,22 @@ $info: #05b6d4;
 
 .container {
   width: 80%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  grid-auto-rows: minmax(10px, 230px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .square {
   height: 180px;
+  width: 300px;
   background-color: $secondary;
   cursor: pointer;
   border-radius: 10px;
   margin: 20px;
 }
 
-.add{
+.add {
   background-color: $info;
   height: 40px;
   width: 40px;
