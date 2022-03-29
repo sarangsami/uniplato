@@ -1,16 +1,15 @@
-
 interface DeleteSquareProps {
   handleDelete(): void;
-  name:string
+  name: string;
 }
-const  SquareItem: React.FC <DeleteSquareProps>= ({handleDelete,name})=>{
-  return(
+
+const SquareItem: React.FC<DeleteSquareProps> = ({handleDelete, name}) => {
+  return (
     <div className="square">
       {name}
-      <button onClick={handleDelete}>
-        delete
-      </button>
+      <button onClick={handleDelete}>delete</button>
     </div>
-  )
-}
-export default SquareItem
+  );
+};
+
+export default SquareItem;
